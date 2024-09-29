@@ -82,12 +82,13 @@ project
    `from questions import views`
 
 - urlpatterns 리스트에 다음을 추가한다.
-  `path(’questions/’, views.index),`
+  `path('questions/', views.index),`
 
 10. views.py 에 다음 함수를 추가한다.
 
-```def index(request):
-      return render(request, ‘index.html’)
+```
+  def index(request):
+      return render(request, 'index.html')
 ```
 
 11. templates 만들기
