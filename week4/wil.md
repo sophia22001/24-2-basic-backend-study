@@ -77,3 +77,60 @@
   - `클래스명.odjects.filter(address__contains='마포구')`
 
 ## 3. 실습
+
+### 저번시간 복습
+
+- **urls.py (이전과 동일)**
+
+  - `path('questions/', views.index),`: path가 맞다면 뒤의 함수를 실행시켜주세요.
+
+- **views.py (이전과 동일)**
+
+  - `index(request)` 함수 생성 - index.html 반환.
+
+- **templates > index.html**
+
+- 실행: `python manage.py runserver`
+  - http://127.0.0.1:8080/questions/ 에 들어가면
+  - ![alt text](image-2.png)
+
+### html을 동적으로 만들어보자.
+
+: 요청이 들어올 때마다 새로 html을 만들어서 준다.
+
+- **views.py**의 index함수 수정
+
+  - name, context 변수 생성
+
+- 동적 html 생성
+  - 중괄호 두번: ex> `<p>{{name}}씨 반갑습니다.</p>`
+
+### 목표> 질문 게시판을 만들어보자.
+
+- **models.py**에 `Question` 클래스를 만든다.
+  - column에 들어갈 값들을 설정해준다.
+    - id, subject, content, created_date
+- **Question** table DB를 만들자.
+  - `python manage.py makemigrations`
+  - `python mange.py migrate`
+  - -> _db.sqlite3_ 파일이 만들어진다.
+  - _settings.py_
+    ```
+    DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
+    }
+    }
+    ```
+- table이 만들어졌는지 확인하기
+  : 장고의 admin 기능
+  - `python manage.py createsuperuser`
+    - ![alt text](image-3.png)
+  - **admin.py** 변경
+  - http://127.0.0.1:8080/admin/
+    - ![alt text](image-4.png)
+    - ![alt text](image-5.png)
+  - DB에 저장된 내용
+    - ![alt text](image-6.png)
+      - id: 1, subject: "질문1", content: "질문1 내용입니다.", created_date: "2024-10-01 ~"
