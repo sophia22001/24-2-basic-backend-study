@@ -98,3 +98,57 @@ def index(request):
   ```
 
 ## 3. 실습
+
+### 3-1. `urls.py` 변경
+
+- `questions/` 경로: 질문들 리스트를 보여준다.
+  ![alt text](image-1.png)
+- `questions/1` 경로: 해당 질문 내용(subject, context, created_date)을 보여준다.
+  ![alt text](image-2.png)
+  - **동적 페이지 id** 만드는 방법 => (우리가 정해준 변수) `question_id`를 이용해서 `'questions/<int:question_id>/'` 처럼 경로를 변경한다.
+
+```python
+    path('questions/', views.question_list),
+    path('questions/<int:question_id>/',views.question_detail),
+```
+
+### 3-2. `views.py` 변경
+
+- 함수로 질문 상세 페이지와 질문 리스트 페이지 기능을 만들어준다.
+  - `question_id`를 id로 정해줘서 동적 페이지를 가져오도록 한다.
+
+```python
+def question_detail(request, question_id):
+  question = Question.objects.get(id=question_id)
+  context = {'question' : question} # 딕셔너리
+  return render(request,'question_detail.html',context)
+
+# 목록을 띄워주는 함수
+def question_list(request):
+  questions = Question.objects.all()
+  context = {'questions' : questions}
+  return render(request, 'question_list.html',context)
+```
+
+### 3-3. `templates` 만들기
+
+- 질문 리스트
+
+  - <a>태그를 이용해서 이동하도록 링크를 걸어준다.
+
+  ```html
+  <!--question_list.html-->
+  <ol>
+    {% for question in questions %}
+    <a href="/questions/{{question.id}}"><li>{{question.subject}}</li></a>
+    {% endfor %}
+  </ol>
+  ```
+
+- 질문 상세
+  ```html
+  <!--question_detail.html-->
+  <h1>{{question.subject}}</h1>
+  <p>{{question.content}}</p>
+  <p>{{question.created_date}}</p>
+  ```
