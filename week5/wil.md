@@ -87,7 +87,7 @@ def index(request):
   <h1>{{student.address}}</h1>
   ```
 
-- 그외 {% %} 문법: 안에 if, for 파이썬 제어문을 쓸 수 있다.
+- 그외 `{% %}` 문법: 안에 if, for 파이썬 제어문을 쓸 수 있다.
 
   ```html
   <ol>
