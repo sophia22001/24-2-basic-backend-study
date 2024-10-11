@@ -134,7 +134,7 @@ def question_list(request):
 
 - 질문 리스트
 
-  - <a>태그를 이용해서 이동하도록 링크를 걸어준다.
+  - `<a>태그`를 이용해서 이동하도록 링크를 걸어준다.
 
   ```html
   <!--question_list.html-->
