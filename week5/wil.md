@@ -6,7 +6,7 @@
 
 - 1. `models.py`에 클래스를 생성하면, 장고가 클래스를 토대로 DB 테이블을 생성해준다.
 
-  ```
+  ```python
   from django.db import models
 
   class Question(models.Model):
@@ -26,7 +26,7 @@
 
 ### SQL 이란?
 
-```
+```SQL
 INSERT into Student (sid, sname, addr) value (C123456, 김유진, 서울시 어쩌구)
 SELECT (sid, name, addr) FROM addr="서울시 어쩌구"
 ```
@@ -47,7 +47,7 @@ SELECT (sid, name, addr) FROM addr="서울시 어쩌구"
 
 ### 동적 html 생성
 
-```
+```python
 def index(request):
   name = 'kim'
   context = {'name' : name}
