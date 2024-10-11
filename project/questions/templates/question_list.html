@@ -1,0 +1,5 @@
+<ol>
+  {% for question in questions %}
+  <a href="/questions/{{question.id}}"><li>{{question.subject}}</li></a>
+  {% endfor %}
+</ol>
