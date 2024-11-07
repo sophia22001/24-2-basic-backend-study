@@ -4,7 +4,7 @@
 
 ### 브라우저 캐싱
 
-: 요청을 처음 보냈을 때 받아온 html을 브라우저 안에 저장을 해놓고, 다음에 같은 요청이 들어오면 브라우저 안에 저장해놓았던 것을 보여준다.
+: 요청을 처음 보냈을 때 받아온 html을 **브라우저 안에 저장**을 해놓고, 다음에 같은 요청이 들어오면 브라우저 안에 저장해놓았던 것을 보여준다.
 
 ### 캐싱을 헤도 되는 (가능한) 요청
 
@@ -22,7 +22,7 @@
 
 ### HTTP Method
 
-: 해당 요청이 어떤 행동을 수행하는 메세지인지 전달하는 상태 코드 HTTP Request의 맨 앞에 나온다.
+: 해당 요청이 어떤 행동을 수행하는 메세지인지 전달하는 상태 코드 HTTP Request의 **맨 앞에** 나온다.
 
 - `GET` : **단순 조회 요청**
   - 웹 브라우저의 **기본** HTTP Method
@@ -43,7 +43,7 @@
 
 ### 웹 통신 흐름
 
-: client와 server는 Http Request와 Http Response를 통해 통신한다.
+: **client**와 **server**는 `Http Request`와 `Http Response`를 통해 통신한다.
 
 ### HTTP Request
 
@@ -61,9 +61,9 @@ def question_create(request):
 ```
 
 - GET
-  - 목적지: localhost:8000
-  - 경로: /questions/create
-  - 정보: subject=질문3
+  - 목적지: `localhost:8000`
+  - 경로: `/questions/create`
+  - 정보: `subject=질문3`
   ```
     GET /questions/create?subject=질문3 HTTP/1.1
     Host: localhost:8000
@@ -103,7 +103,8 @@ def question_create(request):
   - start-line (request-line) : `POST /questions/create HTTP/1.1`
   - header : (사진 참고)
   - message-body :
-    ```subject=질문3
+    ```
+      subject=질문3
       content=질문내용3
     ```
 
@@ -168,15 +169,15 @@ def question_create(request):
   from django.utils import timezone
 
   def question_create(request):
-  if request.method =='GET':
-  return render(request, 'question_create.html')
-  elif request.method=='POST':
-  question = Question.objects.create(
-  subject = request.POST['subject'],
-  content=request.POST['content'],
-  create_date=timezone.now()
-  )
-  return redirect('/questions') # redirect 중요!!
+    if request.method =='GET':
+      return render(request, 'question_create.html')
+    elif request.method=='POST':
+      question = Question.objects.create(
+      subject = request.POST['subject'],
+      content=request.POST['content'],
+      create_date=timezone.now()
+      )
+    return redirect('/questions') # redirect 중요!!
   ```
 
   - **redirect 란?**
@@ -198,5 +199,5 @@ def question_create(request):
     ![alt text](image-5.png)
     ![alt text](image-6.png)
     ![alt text](image-7.png)
-  - 질문 생성하기 `/questions/create` 페이지에서 쓰고 등록을 눌렀더니, **POST request message**가 뜨고 그 후에 `/questions` 페이지를 가져오므로 **GET request message**가 뜨는 것을 볼 수 있다.
+  - 질문 생성하기 `/questions/create` 페이지에서 쓰고 등록을 눌렀더니, **POST request message**가 뜨고 그 다음에 바로 `/questions` 페이지를 가져오므로 **GET request message**가 뜨는 것을 볼 수 있다.
     ![alt text](image-8.png)
