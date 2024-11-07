@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('questions/', views.question_list),
     path('questions/<int:question_id>/',views.question_detail),
+    path('questions/create',views.question_create),
 ]
