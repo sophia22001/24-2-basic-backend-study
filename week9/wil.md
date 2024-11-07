@@ -199,5 +199,5 @@ def question_create(request):
     ![alt text](image-5.png)
     ![alt text](image-6.png)
     ![alt text](image-7.png)
-  - 질문 생성하기 `/questions/create` 페이지에서 쓰고 등록을 눌렀더니, **POST request message**가 뜨고 그 다음에 바로 `/questions` 페이지를 가져오므로 **GET request message**가 뜨는 것을 볼 수 있다.
+  - 질문 생성하기 `/questions/create` 페이지에서 쓰고 등록을 눌렀더니.. 새로운 데이터가 생성되므로 **POST request message**가 뜨고, 그 다음에 바로 `/questions` 페이지를 가져오므로 **GET request message**가 뜨는 것을 볼 수 있다.
     ![alt text](image-8.png)
