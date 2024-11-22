@@ -69,7 +69,7 @@ question.delete()
 
 ## 3. 실습
 
-- `question_detail.html` 에 수정과 삭제 버튼 추가 \_a 태그\*
+- `question_detail.html` 에 수정과 삭제 버튼 추가 _a 태그_
   ![alt text](image.png)
 
 ### 3-1. 질문 삭제 기능
