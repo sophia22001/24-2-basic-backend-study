@@ -1,4 +1,4 @@
-# HTTP Method
+# HTTP Method - form을 이용한 질문 생성
 
 ## 1. Http Method
 
