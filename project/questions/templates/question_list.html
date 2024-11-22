@@ -1,3 +1,8 @@
+<form action="/questions/" method="get">
+  <input type"text" name="keyword" value="{{keyword}}">
+  <button type="submit">검색</button>
+</form>
+
 <ol>
   {% for question in questions %}
   <a href="/questions/{{question.id}}"><li>{{question.subject}}</li></a>
