@@ -1,0 +1,20 @@
+<h1>질문 수정하기</h1>
+<form action="/questions/{{question.id}}/update" method="post">
+  {% csrf_token %}
+  <!--POST 요청을 처리하는 모든 HTML 폼에 이 토큰이 포함되어야한다.-->
+  <input
+    name="subject"
+    type="text"
+    placeholder="제목"
+    value="{{question.subject}}"
+    required
+  />
+  <input
+    name="content"
+    type="text"
+    placeholder="내용"
+    value="{{question.content}}"
+    required
+  />
+  <button type="submit">등록</button>
+</form>
